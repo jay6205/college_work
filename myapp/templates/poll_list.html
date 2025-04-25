@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polls</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 2rem; }
+        .poll { margin: 1rem 0; padding: 1rem; background: white; border-radius: 5px; }
+        a { text-decoration: none; color: #333; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Available Polls</h1>
+    {% for poll in polls %}
+        <div class="poll">
+            <a href="{% url 'poll_detail' poll.id %}">{{ poll.question }}</a>
+        </div>
+    {% empty %}
+        <p>No polls available.</p>
+    {% endfor %}
+</body>
+</html>
